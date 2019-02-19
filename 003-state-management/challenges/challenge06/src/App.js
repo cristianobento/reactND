@@ -1,11 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import AddItens from "./AddItens";
+import DeleteItens from "./DeleteItens";
+import ListItens from "./ListItens";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends React.Component {
   state = {
-    value: '',
-    items: [],
+    value: "",
+    items: []
   };
 
   handleChange = event => {
@@ -15,7 +18,7 @@ class App extends React.Component {
   addItem = event => {
     event.preventDefault();
     this.setState(oldState => ({
-      items: [...oldState.items, this.state.value],
+      items: [...oldState.items, this.state.value]
     }));
   };
 
@@ -24,7 +27,7 @@ class App extends React.Component {
   };
 
   inputIsEmpty = () => {
-    return this.state.value === '';
+    return this.state.value === "";
   };
 
   noItemsFound = () => {
@@ -55,7 +58,9 @@ class App extends React.Component {
 
         <p className="items">Items</p>
         <ol className="item-list">
-          {this.state.items.map((item, index) => <li key={index}>{item}</li>)}
+          {this.state.items.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
         </ol>
       </div>
     );
