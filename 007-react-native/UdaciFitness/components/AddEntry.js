@@ -99,12 +99,9 @@ class AddEntry extends Component {
     this.toHome();
 
     removeEntry(key);
-
-    toHome = () => {
-      this.props.navigation.dispatch(
-        NavigationActions.back({ key: "AddEntry" })
-      );
-    };
+  };
+  toHome = () => {
+    this.props.navigation.dispatch(NavigationActions.back({ key: "AddEntry" }));
   };
   render() {
     const metaInfo = getMetricMetaInfo();
@@ -113,7 +110,7 @@ class AddEntry extends Component {
       return (
         <View style={styles.center}>
           <Ionicons
-            name={Platform.OS === "ios" ? "ios-happy" : "md-happy"}
+            name={Platform.OS === "ios" ? "ios-happy-outline" : "md-happy"}
             size={100}
           />
           <Text>You already logged your information for today.</Text>
