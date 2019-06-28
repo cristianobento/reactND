@@ -1,5 +1,5 @@
 import React from "react";
-import { View, SafeAreaView, Platform, StatusBar } from "react-native";
+import { View, Platform, StatusBar } from "react-native";
 import AddEntry from "./components/AddEntry";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
@@ -12,15 +12,14 @@ import {
 } from "react-navigation";
 import { white, purple } from "./utils/colors";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import { Constants } from "expo-constants";
+import  Constants from "expo-constants";
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
+  console.log('constants', Constants)
   return (
-    <SafeAreaView
-      style={{ backgroundColor, height: Constants.statusBarHeight }}
-    >
+    <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
       <StatusBar translucent backgroundColor={backgroundColor} {...props} />
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -72,9 +71,13 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={createStore(reducer)}>
-        <SafeAreaView style={{ flex: 1 }}>
-          <UdaciStatusBar backgroundColor={purple} barStyle="light-content" />
-        </SafeAreaView>
+        <View style={{ flex: 1 }}>
+          <UdaciStatusBar
+            backgroundColor={purple}
+            barStyle="light-content"
+          />
+          <TabNav />
+        </View>
       </Provider>
     );
   }
