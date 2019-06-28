@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { timeToString, getDailyReminderValue } from "../utils/helpers";
 import MetricCard from "./MetricCard";
-import { white } from "../utils/helpers";
+import { white } from "../utils/colors";
 import TextButton from "./TextButton";
 import { addEntry } from "../actions";
 import { removeEntry } from "../utils/api";

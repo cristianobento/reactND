@@ -15,7 +15,6 @@ import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import  Constants from "expo-constants";
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
-  console.log('constants', Constants)
   return (
     <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
       <StatusBar translucent backgroundColor={backgroundColor} {...props} />
