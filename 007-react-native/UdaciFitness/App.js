@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Platform } from "react-native";
+import { View, SafeAreaView, Platform, StatusBar } from "react-native";
 import AddEntry from "./components/AddEntry";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
@@ -12,6 +12,17 @@ import {
 } from "react-navigation";
 import { white, purple } from "./utils/colors";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
+import { Constants } from "expo-constants";
+
+function UdaciStatusBar({ backgroundColor, ...props }) {
+  return (
+    <SafeAreaView
+      style={{ backgroundColor, height: Constants.statusBarHeight }}
+    >
+      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+    </SafeAreaView>
+  );
+}
 
 const Tabs = {
   History: {
@@ -61,9 +72,9 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={createStore(reducer)}>
-        <View style={{ flex: 1 }}>
-          <TabNav />
-        </View>
+        <SafeAreaView style={{ flex: 1 }}>
+          <UdaciStatusBar backgroundColor={purple} barStyle="light-content" />
+        </SafeAreaView>
       </Provider>
     );
   }
